@@ -1,0 +1,7 @@
+<div class="todo-details">
+  {{todo.title}}
+  -
+  <input type="checkbox" [checked]="todo.done" (change)="changeStatus($event.target, todo)">
+
+  <button (click)="delete(todo)">Delete</button>
+</div>

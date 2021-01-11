@@ -1,0 +1,9 @@
+
+<div class="form">
+  <input type="text" [placeholder]="'Add new todo'" #todo>
+  <button (click)="addTodo(todo.value)">+</button>
+</div>
+
+<div class="todo-list">
+  <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+</div>
