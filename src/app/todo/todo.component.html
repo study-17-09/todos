@@ -1,7 +1,9 @@
 <div class="todo-details">
   {{todo.title}}
   -
-  <input type="checkbox" [checked]="todo.done" (change)="changeStatus($event.target, todo)">
+  <input type="checkbox"
+         [checked]="todo.done"
+         (change)="statusChanged.emit({target: $event.target, todo: todo})">
 
-  <button (click)="delete(todo)">Delete</button>
+  <button (click)="deleted.emit(todo)">Delete</button>
 </div>

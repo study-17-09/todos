@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TodosService } from '../todos.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from '../model/todo';
 
 @Component({
   selector: 'app-todo',
@@ -8,16 +8,12 @@ import { TodosService } from '../todos.service';
 })
 export class TodoComponent {
 
-  @Input() todo: any;
+  // @ts-ignore
+  @Input() todo: Todo;
 
-  constructor(public todoService: TodosService) { }
+  @Output()
+  statusChanged: EventEmitter<any> = new EventEmitter<any>();
 
-  changeStatus(target: any, todo: any): void {
-    todo.done = target.checked;
-  }
-
-  delete(todo: any): any {
-    const index = this.todoService.todos.findIndex(v => v.id === todo.id && v.title === todo.title && v.done === todo.done);
-    this.todoService.todos.splice(index, 1);
-  }
+  @Output()
+  deleted: EventEmitter<Todo> = new EventEmitter<Todo>();
 }

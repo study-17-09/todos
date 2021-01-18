@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TodosService } from './todos.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,5 @@ import { TodosService } from './todos.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  constructor(public todoService: TodosService) {
-  }
 }
 

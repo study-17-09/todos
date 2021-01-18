@@ -5,5 +5,17 @@
 </div>
 
 <div class="todo-list">
-  <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+  <app-todo *ngFor="let todo of todos | todos"
+            [todo]="todo"
+            (statusChanged)="changeStatus($event)"
+            (deleted)="delete($event)">
+  </app-todo>
+</div>
+
+<div class="todo-list-done">
+  <app-todo *ngFor="let todo of todos | completedTodos"
+            [todo]="todo"
+            (statusChanged)="changeStatus($event)"
+            (deleted)="delete($event)">
+  </app-todo>
 </div>
